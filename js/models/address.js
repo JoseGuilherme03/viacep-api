@@ -1,6 +1,6 @@
-export default function Address(cep, street, number, city) {
+export default function Address(cep, street, city, state) {
   this.cep = cep;
   this.street = street;
-  this.number = number;
   this.city = city;
+  this.state = state
 }
