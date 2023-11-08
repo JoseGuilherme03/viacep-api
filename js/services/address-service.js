@@ -10,3 +10,13 @@ export async function findByCep(cep) {
 
     return address
 }
+
+export function getErrors(address) {
+    const errors = {}
+
+    if (!address.cep || address.cep == "") {
+        errors.cep = "Campo requerido"
+    }
+
+    return errors
+}

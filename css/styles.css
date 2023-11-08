@@ -1,4 +1,3 @@
-@import 'modal.css';
 @import 'buttons.css';
 
 * {
@@ -33,11 +32,6 @@ html, body {
 .nav-main h1 {
     color: #fff;
     font-size: 36px;
-}
-
-.contact-link {
-    color: #fff;
-    cursor: pointer;
 }
 
 .form-container {
