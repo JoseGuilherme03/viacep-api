@@ -112,3 +112,37 @@ export function sortByNeighborhoodDescending() {
 
   return addresses;
 }
+
+export function sortByStateAscending() {
+  const addresses = AddressService.getAddresses();
+  addresses.sort(function (a, b) {
+    var stateA = a.state.toUpperCase();
+    var stateB = b.state.toUpperCase();
+
+    if (stateA < stateB) {
+      return -1;
+    }
+    if (stateA > stateB) {
+      return 1;
+    }
+  });
+  return addresses;
+}
+
+export function sortByStateDescending() {
+  const addresses = AddressService.getAddresses();
+  addresses.sort(function (a, b) {
+    const stateA = a.state.toUpperCase();
+    const stateB = b.state.toUpperCase();
+    if (stateA > stateB) {
+      return -1;
+    }
+    if (stateA < stateB) {
+      return 1;
+    }
+
+    return 0;
+  });
+
+  return addresses;
+}

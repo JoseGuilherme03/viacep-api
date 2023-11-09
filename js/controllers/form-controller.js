@@ -13,8 +13,10 @@ function State() {
   this.errorCep = null;
   this.btnCityCrescent = null;
   this.btnCityDecrescent = null;
-  this.btnNeighborhoodCrescent = null
-  this.btnNeighborhoodDecrescent = null
+  this.btnNeighborhoodCrescent = null;
+  this.btnNeighborhoodDecrescent = null;
+  this.btnStateCrescent = null;
+  this.btnStateDecrescent = null;
 }
 
 const state = new State();
@@ -30,9 +32,14 @@ export function init() {
 
   state.btnCityCrescent = document.querySelector("#btn-city-crescent");
   state.btnCityDecrescent = document.querySelector("#btn-city-decrescent");
-  state.btnNeighborhoodCrescent = document.querySelector("#btn-neighborhood-crescent");
-  state.btnNeighborhoodDecrescent = document.querySelector("#btn-neighborhood-decrescent");
-
+  state.btnNeighborhoodCrescent = document.querySelector(
+    "#btn-neighborhood-crescent"
+  );
+  state.btnNeighborhoodDecrescent = document.querySelector(
+    "#btn-neighborhood-decrescent"
+  );
+  state.btnStateCrescent = document.querySelector("#btn-state-crescent");
+  state.btnStateDecrescent = document.querySelector("#btn-state-decrescent");
 
   state.errorCep = document.querySelector('[data-error="cep"]');
 
@@ -44,8 +51,19 @@ export function init() {
     "click",
     handleBtnCityDecrescentClick
   );
-  state.btnNeighborhoodCrescent.addEventListener("click", handleBtnNeighborhoodCrescentClick)
-  state.btnNeighborhoodDecrescent.addEventListener("click", handleBtnNeighborhoodDecrescentClick)
+  state.btnNeighborhoodCrescent.addEventListener(
+    "click",
+    handleBtnNeighborhoodCrescentClick
+  );
+  state.btnNeighborhoodDecrescent.addEventListener(
+    "click",
+    handleBtnNeighborhoodDecrescentClick
+  );
+  state.btnStateCrescent.addEventListener("click", handleBtnStateCrescentClick);
+  state.btnStateDecrescent.addEventListener(
+    "click",
+    handleBtnStateDecrescentClick
+  );
 }
 
 function handleBtnSaveClick(event) {
@@ -108,6 +126,22 @@ function handleBtnNeighborhoodCrescentClick() {
 
 function handleBtnNeighborhoodDecrescentClick() {
   const listDecrescent = listController.sortByNeighborhoodDescending();
+  listController.updateCardDisplay(listDecrescent);
+  listDecrescent.forEach((address) => {
+    listController.addCard(address);
+  });
+}
+
+function handleBtnStateCrescentClick() {
+  const listCrescent = listController.sortByStateAscending();
+  listController.updateCardDisplay(listCrescent);
+  listCrescent.forEach((address) => {
+    listController.addCard(address);
+  });
+}
+
+function handleBtnStateDecrescentClick() {
+  const listDecrescent = listController.sortByStateDescending();
   listController.updateCardDisplay(listDecrescent);
   listDecrescent.forEach((address) => {
     listController.addCard(address);

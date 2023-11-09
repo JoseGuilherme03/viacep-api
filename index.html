@@ -1,69 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ViaCEP</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DSViaCEP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
-    rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
 
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-
-<body>
-  <header class="nav-container">
-    <nav class="nav-main">
-      <h1>ViaCEP</h1>
-    </nav>
-  </header>
-  <main>
-    <section id="form-section" class="form-container">
-      <div class="card-form">
-        <form name="newAddress">
-          <div class="form-control">
-            <label for="cep">CEP:</label>
-            <input name="cep" id="cep" class="form-input" type="text" placeholder="CEP" />
-            <div class="error-message" data-error="cep"></div>
-          </div>
-          <div class="form-control">
-            <label for="neighborhood">Logradouro:</label>
-            <input name="neighborhood" id="neighborhood" class="form-input" type="text" placeholder="Bairro" disabled />
-          </div>
-          <div class="form-control">
-            <label for="city">Cidade:</label>
-            <input name="city" id="city" class="form-input" type="text" placeholder="Cidade" disabled />
-          </div>
-          <div class="form-control">
-            <label for="state">Estado:</label>
-            <input name="state" id="state" class="form-input" type="text" placeholder="Estado" disabled />
-          </div>
-          <div class="btn-container">
-            <button name="btnSave" class="btn btn-left" type="submit">
-              Salvar
-            </button>
-            <button name="btnClear" class="btn btn-right">Limpar</button>
-          </div>
-        </form>
-      </div>
-    </section>
-    <section id="ordering-section">
-      <button id="btn-city-crescent" class="ordering-btn">Cidade (Crescente)</button>
-      <button id="btn-city-decrescent" class="ordering-btn">Cidade (Decrescente)</button>
-      <button id="btn-neighborhood-crescent" class="ordering-btn">Bairro (Crescente)</button>
-      <button id="btn-neighborhood-decrescent" class="ordering-btn">Bairro (Decrescente)</button>
-      <button id="btn-state-crescent" class="ordering-btn">Estado (Crescente)</button>
-      <button id="btn-state-decrescent" class="ordering-btn">Estado (Decrescente)</button>
-    </section>
-    <section id="list-section" class="list-container">
-    </section>
-  </main>
-  <script type="module" src="js/viacep.js"></script>
-</body>
-
+  <body>
+    <header class="nav-container">
+      <nav class="nav-main">
+        <h1>ViaCEP</h1>
+      </nav>
+    </header>
+    <main>
+      <section id="form-section" class="form-container">
+        <div class="card-form">
+          <form name="newAddress">
+            <div class="form-control">
+              <label for="cep">CEP:</label>
+              <input
+                name="cep"
+                id="cep"
+                class="form-input"
+                type="text"
+                placeholder="CEP"
+              />
+              <div class="error-message" data-error="cep"></div>
+            </div>
+            <div class="form-control">
+              <label for="neighborhood">Logradouro:</label>
+              <input
+                name="neighborhood"
+                id="neighborhood"
+                class="form-input"
+                type="text"
+                placeholder="Bairro"
+                disabled
+              />
+            </div>
+            <div class="form-control">
+              <label for="city">Cidade:</label>
+              <input
+                name="city"
+                id="city"
+                class="form-input"
+                type="text"
+                placeholder="Cidade"
+                disabled
+              />
+            </div>
+            <div class="form-control">
+              <label for="state">Estado:</label>
+              <input
+                name="state"
+                id="state"
+                class="form-input"
+                type="text"
+                placeholder="Estado"
+                disabled
+              />
+            </div>
+            <div class="btn-container">
+              <button name="btnSave" class="btn btn-left" type="submit">
+                Salvar
+              </button>
+              <button name="btnClear" class="btn btn-right">Limpar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section id="ordering-section">
+        <button id="btn-city-crescent" class="ordering-btn">
+          Cidade (Crescente)
+        </button>
+        <button id="btn-city-decrescent" class="ordering-btn">
+          Cidade (Decrescente)
+        </button>
+        <button id="btn-neighborhood-crescent" class="ordering-btn">
+          Bairro (Crescente)
+        </button>
+        <button id="btn-neighborhood-decrescent" class="ordering-btn">
+          Bairro (Decrescente)
+        </button>
+        <button id="btn-state-crescent" class="ordering-btn">
+          Estado (Crescente)
+        </button>
+        <button id="btn-state-decrescent" class="ordering-btn">
+          Estado (Decrescente)
+        </button>
+      </section>
+      <section id="list-section" class="list-container"></section>
+    </main>
+    <script type="module" src="js/viacep.js"></script>
+  </body>
 </html>
