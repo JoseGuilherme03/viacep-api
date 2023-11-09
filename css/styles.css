@@ -111,3 +111,19 @@ html, body {
     color: #8f8f8f;
     font-size: 12px;
 }
+
+#ordering-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+.ordering-btn {
+    background-color: #ff8400;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+  }

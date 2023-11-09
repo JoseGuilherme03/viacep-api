@@ -1,22 +1,34 @@
-import * as requestService from './request-service.js'
-import Address from '../models/address.js'
+import * as requestService from "./request-service.js";
+import Address from "../models/address.js";
 
+const addresses = [];
 
 export async function findByCep(cep) {
-    const url = `https://viacep.com.br/ws/${cep}/json/`
-    const result = await requestService.getJson(url)
+  const url = `https://viacep.com.br/ws/${cep}/json/`;
+  const result = await requestService.getJson(url);
 
-    const address = new Address(result.cep, result.logradouro, result.localidade, result.uf)
+  const address = new Address(
+    result.cep,
+    result.bairro,
+    result.localidade,
+    result.uf
+  );
 
-    return address
+  addresses.push(address);
+
+  return address;
+}
+
+export function getAddresses() {
+  return addresses;
 }
 
 export function getErrors(address) {
-    const errors = {}
+  const errors = {};
 
-    if (!address.cep || address.cep == "") {
-        errors.cep = "Campo requerido"
-    }
+  if (!address.cep || address.cep == "") {
+    errors.cep = "Campo requerido";
+  }
 
-    return errors
+  return errors;
 }

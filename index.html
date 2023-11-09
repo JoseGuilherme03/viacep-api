@@ -32,8 +32,8 @@
             <div class="error-message" data-error="cep"></div>
           </div>
           <div class="form-control">
-            <label for="street">Logradouro:</label>
-            <input name="street" id="street" class="form-input" type="text" placeholder="Logradouro" disabled />
+            <label for="neighborhood">Logradouro:</label>
+            <input name="neighborhood" id="neighborhood" class="form-input" type="text" placeholder="Bairro" disabled />
           </div>
           <div class="form-control">
             <label for="city">Cidade:</label>
@@ -52,12 +52,15 @@
         </form>
       </div>
     </section>
+    <section id="ordering-section">
+      <button id="btn-city-crescent" class="ordering-btn">Cidade (Crescente)</button>
+      <button id="btn-city-decrescent" class="ordering-btn">Cidade (Decrescente)</button>
+      <button id="btn-neighborhood-crescent" class="ordering-btn">Bairro (Crescente)</button>
+      <button id="btn-neighborhood-decrescent" class="ordering-btn">Bairro (Decrescente)</button>
+      <button id="btn-state-crescent" class="ordering-btn">Estado (Crescente)</button>
+      <button id="btn-state-decrescent" class="ordering-btn">Estado (Decrescente)</button>
+    </section>
     <section id="list-section" class="list-container">
-      <div class="card-list-item">
-        <h3></h3>
-        <p class="address-line"></p>
-        <p class="address-cep"></p>
-      </div>
     </section>
   </main>
   <script type="module" src="js/viacep.js"></script>

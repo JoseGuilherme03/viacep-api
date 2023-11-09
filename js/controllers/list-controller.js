@@ -1,3 +1,5 @@
+import * as AddressService from "../services/address-service.js";
+
 function State() {
   this.listSection = null;
 }
@@ -5,12 +7,12 @@ function State() {
 const state = new State();
 
 export function init() {
-    state.listSection = document.querySelector("#list-section")
+  state.listSection = document.querySelector("#list-section");
 }
 
 export function addCard(address) {
-    const card = creatCard(address)
-    state.listSection.appendChild(card)
+  const card = creatCard(address);
+  state.listSection.appendChild(card);
 }
 
 function creatCard(address) {
@@ -22,7 +24,7 @@ function creatCard(address) {
 
   const line = document.createElement("p");
   line.classList.add("address-line");
-  line.innerHTML = address.street;
+  line.innerHTML = address.neighborhood;
 
   const cep = document.createElement("p");
   cep.classList.add("address-cep");
@@ -32,6 +34,81 @@ function creatCard(address) {
   div.appendChild(line);
   div.appendChild(cep);
 
-  return div
+  return div;
 }
 
+export function updateCardDisplay(sortedData) {
+  const cardContainer = document.querySelector("#list-section");
+
+  while (cardContainer.firstChild) {
+    cardContainer.removeChild(cardContainer.firstChild);
+  }
+}
+
+export function sortByCityAscending() {
+  const addresses = AddressService.getAddresses();
+  addresses.sort(function (a, b) {
+    var cityA = a.city.toUpperCase();
+    var cityB = b.city.toUpperCase();
+
+    if (cityA < cityB) {
+      return -1;
+    }
+    if (cityA > cityB) {
+      return 1;
+    }
+  });
+  return addresses;
+}
+
+export function sortByCityDescending() {
+  const addresses = AddressService.getAddresses();
+  addresses.sort(function (a, b) {
+    const cityA = a.city.toUpperCase();
+    const cityB = b.city.toUpperCase();
+    if (cityA > cityB) {
+      return -1;
+    }
+    if (cityA < cityB) {
+      return 1;
+    }
+
+    return 0;
+  });
+
+  return addresses;
+}
+
+export function sortByNeighborhoodAscending() {
+  const addresses = AddressService.getAddresses();
+  addresses.sort(function (a, b) {
+    var neighborhoodA = a.neighborhood.toUpperCase();
+    var neighborhoodB = b.neighborhood.toUpperCase();
+
+    if (neighborhoodA < neighborhoodB) {
+      return -1;
+    }
+    if (neighborhoodA > neighborhoodB) {
+      return 1;
+    }
+  });
+  return addresses;
+}
+
+export function sortByNeighborhoodDescending() {
+  const addresses = AddressService.getAddresses();
+  addresses.sort(function (a, b) {
+    const neighborhoodA = a.neighborhood.toUpperCase();
+    const neighborhoodB = b.neighborhood.toUpperCase();
+    if (neighborhoodA > neighborhoodB) {
+      return -1;
+    }
+    if (neighborhoodA < neighborhoodB) {
+      return 1;
+    }
+
+    return 0;
+  });
+
+  return addresses;
+}

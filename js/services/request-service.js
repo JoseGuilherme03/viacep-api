@@ -6,6 +6,6 @@ export async function getJson(url) {
     const jsonBody = await response.json();
     return jsonBody;
   } catch (e) {
-    throw new RequestException("Erro ao realizaar a requisição");
+    throw new RequestException("Erro ao realizar a requisição");
   }
 }
